@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+        - mkdir -p build
+    build:
+      commands:
+        - if [ "${BRANCH}" = "master" ]; then yarn test:ci && yarn build:prod; fi
+        - if [ "${BRANCH}" = "develop" ]; then yarn test:ci && yarn build:dev; fi
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
