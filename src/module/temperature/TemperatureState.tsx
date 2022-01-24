@@ -1,8 +1,8 @@
 import React from "react";
-import { TemperatureStateInterface } from "module/temperature/type";
+import { TemperatureStateInterface } from "./type";
 
-const Temperature: React.FC<TemperatureStateInterface> = ({ value }) => {
+const TemperatureState: React.FC<TemperatureStateInterface> = ({ value }) => {
   return <>{value} °C</>;
 };
 
-export default Temperature;
+export default TemperatureState;
